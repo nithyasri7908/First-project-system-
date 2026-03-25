@@ -1,0 +1,40 @@
+# Time Management Program
+
+tasks = []
+
+def add_task():
+    name = input("Enter task name: ")
+    time = input("Enter time for task (e.g., 2pm or 14:00): ")
+    tasks.append({"task": name, "time": time})
+    print("Task added successfully!\n")
+
+def view_tasks():
+    if len(tasks) == 0:
+        print("No tasks available.\n")
+    else:
+        print("\nYour Tasks:")
+        for i, task in enumerate(tasks, start=1):
+            print(f"{i}. {task['task']} at {task['time']}")
+        print()
+
+def menu():
+    while True:
+        print("---- Time Management Menu ----")
+        print("1. Add Task")
+        print("2. View Tasks")
+        print("3. Exit")
+        
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            add_task()
+        elif choice == "2":
+            view_tasks()
+        elif choice == "3":
+            print("Exiting program...")
+            break
+        else:
+            print("Invalid choice! Try again.\n")
+
+# Run the program
+menu()
